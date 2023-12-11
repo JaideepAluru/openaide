@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+def upload_to(instance, filename):
+    return f'Users/jaideepreddyaluru/Documents/dest/{filename}'
 
 class Document(models.Model):
     name = models.CharField(max_length=255)
@@ -10,3 +12,6 @@ class Document(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_file_url(self):
+        return self.file.url
